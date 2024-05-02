@@ -7,19 +7,18 @@ from telethon.tl.types import Message
 from .. import loader, utils
 
 TARGET_DATE = datetime(2024, 5, 10)
-API_WAIT_TIME = 10  # seconds
 
 @loader.tds
-class Countdown(loader.Module):
+class LaptiyTime(loader.Module):
     """Countdown to May 10th"""
 
-    strings = {"name": "Countdown"}
+    strings = {"name": "LaptiyTime"}
     strings_ru = {
         "_cls_doc": "Обратный отсчёт до 10 мая",
-        "_cmd_doc_countdown": "Показывает время до 10 мая",
+        "_cmd_doc_laptiytime": "Показывает время до 10 мая",
     }
 
-    async def countdowncmd(self, message: Message):
+    async def laptiytimecmd(self, message: Message):
         """Shows time until May 10th"""
         custom_text = utils.get_args_raw(message)
         try:
@@ -38,7 +37,7 @@ class Countdown(loader.Module):
             else:
                 raise e  # Raise error if it's a different RPC error
 
-    async def countdownicmd(self, message: Message):
+    async def laptiytimeicmd(self, message: Message):
         """Shows time until May 10th [Inline]"""
         custom_text = utils.get_args_raw(message)
         try:
@@ -57,7 +56,7 @@ class Countdown(loader.Module):
             else:
                 raise e  # Raise error if it's a different RPC error
 
-    async def animate_countdown(self, message: Message, custom_text: str, interval: float, inline: bool):
+    async def animate_laptiytime(self, message: Message, custom_text: str, interval: float, inline: bool):
         m = None
         while True:
             delta = TARGET_DATE - datetime.now()
@@ -94,5 +93,5 @@ class Countdown(loader.Module):
         days, seconds = divmod(seconds, 86400)
         hours, seconds = divmod(seconds, 3600)
         minutes, seconds = divmod(seconds, 60)
-        return f"{int(days)} days, {int(hours)} hours, {int(minutes)} min, {int(seconds)} sec"
+        return f"{int(days)} days, {int(hours)} hours, {int(minutes)} min"
         
