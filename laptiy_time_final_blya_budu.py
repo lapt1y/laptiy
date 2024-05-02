@@ -10,7 +10,7 @@ TARGET_DATE = datetime(2024, 5, 10)
 
 @loader.tds
 class LaptiyTime(loader.Module):
-    """Countdown to May 10th"""
+    """LaptiyTime to May 10th"""
 
     strings = {"name": "LaptiyTime"}
     strings_ru = {
@@ -67,7 +67,7 @@ class LaptiyTime(loader.Module):
                 m = await self.edit_message(
                     message,
                     m,
-                    custom_text + "\n<b>" + countdown_text + "</b>" if custom_text else "<b>" + countdown_text + "</b>",
+                    custom_text + "\n<b>" + laptiytime_text + "</b>" if custom_text else "<b>" + laptiytime_text + "</b>",
                     inline=inline,
                 )
             except FloodWaitError as e:
