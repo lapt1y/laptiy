@@ -22,7 +22,7 @@ class LaptiyTime(loader.Module):
         """Shows time until May 10th"""
         custom_text = utils.get_args_raw(message)
         try:
-            m = await self.animate_countdown(
+            m = await self.animate_laptiytime(
                 message,
                 custom_text,
                 interval=0.059,
