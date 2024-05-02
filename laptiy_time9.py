@@ -67,5 +67,5 @@ class Countdown(loader.Module):
         days, seconds = divmod(seconds, 86400)
         hours, seconds = divmod(seconds, 3600)
         minutes, seconds = divmod(seconds, 60)
-        return f"{int(days)} days, {int(hours)} hours, {int(minutes)} min, {int(seconds)} sec"
+        return f"{int(days)} days, {int(hours)} hours, {int(minutes)} min"
         
