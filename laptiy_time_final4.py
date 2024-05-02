@@ -7,7 +7,6 @@ from telethon.tl.types import Message
 from .. import loader, utils
 
 TARGET_DATE = datetime(2024, 5, 10)
-API_WAIT_TIME = 5  # seconds
 
 @loader.tds
 class laptiytime(loader.Module):
