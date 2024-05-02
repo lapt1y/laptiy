@@ -18,32 +18,16 @@ class Countdown(loader.Module):
         "_cmd_doc_countdown": "Показывает время до 10 мая",
     }
 
-    async def countdowncmd(self, message: Message):
-        """Shows time until May 10th"""
-        custom_text = utils.get_args_raw(message)
-        try:
-            m = await self.animate_countdown(
-                message,
-                custom_text,
-                interval=0.059,
-                inline=False,
-            )
-            await m.edit(utils.escape_html(custom_text) + "\n<b>" + custom_text + "</b>" + "\n" + "No custom text provided")
-        except RPCError as e:
-            if "Content of the message was not modified" in str(e):
-                pass  # Skip handling this error
-            else:
-                raise e  # Raise error if it's a different RPC error
+    
 
-    async def countdownicmd(self, message: Message):
-        """Shows time until May 10th [Inline]"""
+    async def laptime(self, message: Message, inline: bool):
         custom_text = utils.get_args_raw(message)
         try:
             m = await self.animate_countdown(
                 message,
                 custom_text,
-                interval=0.059,
-                inline=True,
+                interval=60,
+                inline=inline,
             )
             await m.edit(utils.escape_html(custom_text) + "\n<b>" + custom_text + "</b>" + "\n" + "No custom text provided")
         except RPCError as e:
